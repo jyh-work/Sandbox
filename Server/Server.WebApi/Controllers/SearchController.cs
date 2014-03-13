@@ -8,7 +8,7 @@ namespace Server.WebApi.Controllers
 {
     public class SearchController : ApiController
     {
-        public IEnumerable<DeviceItem> GetDeviceItems(SearchOptions options)
+        public IEnumerable<DeviceItem> GetDeviceItems([FromBody]SearchOptions options)
         {
             return FakeGetDevideSummariesFromService(options);
         }
