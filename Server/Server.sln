@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.WebApi", "Server.WebApi\Server.WebApi.csproj", "{14152DCF-4711-43FB-B54D-F5E303E773B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.UITest", "Server.UITest\Server.UITest.csproj", "{F4164EEA-95CB-473A-82AB-9E59D39E9788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.WebApiTestData", "Server.WebApiTestData\Server.WebApiTestData.csproj", "{14152DCF-4711-43FB-B54D-F5E303E773B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4164EEA-95CB-473A-82AB-9E59D39E9788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4164EEA-95CB-473A-82AB-9E59D39E9788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4164EEA-95CB-473A-82AB-9E59D39E9788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4164EEA-95CB-473A-82AB-9E59D39E9788}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14152DCF-4711-43FB-B54D-F5E303E773B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14152DCF-4711-43FB-B54D-F5E303E773B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14152DCF-4711-43FB-B54D-F5E303E773B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
