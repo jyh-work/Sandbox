@@ -17,11 +17,11 @@ namespace Server.WebApi.Controllers
         private static readonly DeviceItem[] FakeDeviceItems =
         {
             new DeviceItem {Key = Guid.NewGuid(), Name = "ICU Med Station 1", ParentName = "UCSD San Marcos"},
-            new DeviceItem {Key = Guid.NewGuid(), Name = "ER Station 1", ParentName = "UCSD San Marcos"},
+            new DeviceItem {Key = Guid.NewGuid(), Name = "ER Station 1", ParentName = "UCSD San Marcos", OutOfService = true},
             new DeviceItem {Key = Guid.NewGuid(), Name = "Device 3", ParentName = "UCSD San Marcos"},
-            new DeviceItem {Key = Guid.NewGuid(), Name = "ICU Med Station 1", ParentName = "UCSD La Jolla"},
+            new DeviceItem {Key = Guid.NewGuid(), Name = "ICU Med Station 1", ParentName = "UCSD La Jolla", CriticalOverride = true},
             new DeviceItem {Key = Guid.NewGuid(), Name = "Device 3", ParentName = "UCSD La Jolla"},
-            new DeviceItem {Key = Guid.NewGuid(), Name = "ER Station 1", ParentName = "UCSD La Jolla"},
+            new DeviceItem {Key = Guid.NewGuid(), Name = "ER Station 1", ParentName = "UCSD La Jolla", CriticalOverride = true},
         };
 
         private IEnumerable<DeviceItem> FakeGetDevideSummariesFromService(SearchOptions options)

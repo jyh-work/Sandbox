@@ -1,5 +1,22 @@
 ﻿
-<div ng-app="pendUtilityModule">
-    <h1>Device List Demo</h1>
+<style>
+    .gridStyle {
+        border: 1px solid rgb(212,212,212);
+        width: 700px;
+        height: 300px;
+    }
+    .ngRow {
+        cursor: pointer;
+    }
+    .red {
+        background-color: red
+    }
+    .yellow {
+        background-color: yellow
+    }
+</style>
+
+<div ng-controller="pendUtilityController">
     <h2>{{featureTitle}}</h2>
+    <div class="gridStyle" ng-grid="gridOptions"></div>
 </div>

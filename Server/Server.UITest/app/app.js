@@ -1,6 +1,6 @@
-﻿var app = angular.module('uiTestApp', ['ngRoute'])
+﻿var app = angular.module('uiTestApp', ['ngRoute', 'ngGrid'])
     .constant("appSetting", {
-        "appApiBaseUrl": "http:\\localhost\api"
+        "appApiBaseUrl": "http://localhost/api/"
     })
     .config(function ($routeProvider) {
         console.log('initializing route provider');
@@ -19,7 +19,7 @@
             });
 
     })
-    .factory("baseService", ["$http", "$log", function ($http, $log, appSetting) {
+    .factory("baseService", ["$http", "$log", 'appSetting', function ($http, $log, appSetting) {
         console.log('initializing baseService');
         
         var services = {};
@@ -28,11 +28,14 @@
         //};
 
         var fullUrl = function(val) {
-            return appSetting.appApiBaseUrl + "\\" + val;
+            return appSetting.appApiBaseUrl  + val;
         };
         
         services.get = function (url, config) {
-            return $http.get(fullUrl(url), config);
+            console.log('url = ' + url);
+            var getUrl = fullUrl(url);
+            console.log('getUrl = ' + getUrl);
+            return $http.get(getUrl, config);
         };
 
         services.post = function (url, data, config) {
@@ -40,6 +43,21 @@
         };
         return services;
     }])
+    .factory('pendUtilityService', [function (baseService) {
+        console.log('initializing pendUtilityService...');
+
+        var getDevicesUrl = 'api/Search/GetDeviceItems';
+
+        return {
+            getDeviceList: function () {
+                var data = baseService.services.get(getDevicesUrl);
+            }
+        };
+    }])
+    .constant("pendUtilitySetting", {
+        //"deviceListUrl": "/PendUtility/GetDevices",
+        "deviceListUrl": "/Search/GetDeviceItems"
+    })
     .run(function ($rootScope, $route, $location) {
         console.log('running base app');
         
@@ -69,4 +87,35 @@
         $rootScope.userLanguage = navigator.userLanguage;
 
     });
+
+app.controller("pendUtilityController", [
+    "$scope", "$log", "baseService", "pendUtilitySetting",
+    function ($scope, $log, service, setting, pendUtilityService) {
+        console.log('initializing pendUtilityDeviceListController');
+        $scope.devices = [];
+
+        var devicePromise = service.get(setting.deviceListUrl);
+        devicePromise.then(function (response) {
+            $scope.devices = response.data;
+        }, service.handleError);
+
+        $scope.featureTitle = 'Pend Utility Device List';
+        $scope.gridOptions = {
+            data: "devices",
+            showFilter: false,
+            multiSelect: false,
+            columnDefs: [
+                { field: 'Name', displayName: 'Device Name'},
+                { field: 'ParentName', displayName: 'Facility' },
+                { field: 'OutOfService', displayName: 'Out of Service', cellClass: 'red: 5 > 1' },
+                { field: 'CriticalOverride', displayName: 'Critical Override', cellClass: 'yellow' }
+            ]
+        };
+
+        $scope.getBooleanCellClass = function(val) {
+            return 'red';
+        };
+    }
+]);
+
 

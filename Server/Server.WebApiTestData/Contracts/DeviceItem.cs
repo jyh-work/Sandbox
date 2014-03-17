@@ -11,5 +11,9 @@ namespace Server.WebApi.Contracts
         public Guid ParentKey { get; set; }
 
         public string ParentName { get; set; }
+
+        public bool CriticalOverride { get; set; }
+
+        public bool OutOfService { get; set; }
     }
 }
