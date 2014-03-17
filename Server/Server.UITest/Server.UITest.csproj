@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\app.routes.js" />
+    <Content Include="app\pendUtility\pendUtilityModule.js" />
     <Content Include="content\css\bootstrap-responsive.css" />
     <Content Include="content\css\bootstrap-responsive.min.css" />
     <Content Include="content\css\bootstrap.css" />
@@ -67,6 +68,7 @@
     <Content Include="content\css\ng-grid.min.css" />
     <Content Include="content\img\glyphicons-halflings-white.png" />
     <Content Include="content\img\glyphicons-halflings.png" />
+    <Content Include="notFound.html" />
     <Content Include="scripts\angular-bootstrap-prettify.js" />
     <Content Include="scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="scripts\angular-bootstrap.js" />
@@ -143,14 +145,14 @@
     <Content Include="scripts\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="scripts\ng-grid-2.0.7.js" />
     <Content Include="scripts\ng-grid-2.0.7.min.js" />
+    <Content Include="views\home.html" />
+    <Content Include="views\pendUtility\deviceList.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="views\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -14,7 +14,7 @@
         <!-- 3rd party libraries -->
         <script type="text/javascript" src="scripts/angular.js"></script>
         <script type="text/javascript" src="scripts/angular-route.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+        <!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>-->
         <script type="text/javascript" src="scripts/angular-animate.js"></script>
         <script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
@@ -24,6 +24,14 @@
         <script type="text/javascript" src="scripts/loading-bar.js"></script>
         <!--<script type="text/javascript" src="scripts/jquery-1.9.1.intellisense.js"></script>-->
         <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="scripts/ng-grid-2.0.7.js"></script>
+        <script type="text/javascript" src="app/pendUtility/pendUtilityModule.js"></script>
+        <script>
+            (function () {
+                console.log('devliceList page');
+                angular.bootstrap(document, ['pendUtilityModule']);
+            });
+        </script>
     </head>
 
     <body>
@@ -44,7 +52,7 @@
                         </div>
                         <div>Language: <span ng-bind="userLanguage"></span></div>
                         <ul class="nav">
-                            <li><a href="#/views/ngGrid">ng Grid Testing</a></li>
+                            <li><a href="#/ngGrid">ng Grid Testing</a></li>
                             <li><a href="#/directives">Custom Directives</a></li>
                             <li><a href="">Multi Components</a></li>
                             <!--<li><a href="#/about">About</a></li>-->
@@ -53,7 +61,7 @@
                 </div>
             </header>
             <section class="container" id="body">
-                <div></div>
+                <div ng-view></div>
             </section>
 
             <hr />
